@@ -145,13 +145,6 @@ else {   // jeigu id nera sistemoje
         
         Json::getDB()->store($user);  //sukurimas
         
-
-    
-
-
-
 }
-
-
 
 ?>
