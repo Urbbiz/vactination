@@ -6,8 +6,8 @@
 ### PHP Developer Task fol learning purposes.
 
 
-START PROGRAM:
-in CLI type: php index.php
+# START PROGRAM
+- In CLI type: php index.php
 
 Application  store these fields:
 - ID
