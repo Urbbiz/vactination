@@ -2,7 +2,7 @@
 
 require __DIR__.'/bootstrap.php';
 
-Echo " if you are medical personel start from beginning and use: php index.php --medicalPersonel. ";
+
 
 if($argc > 1 && ($argv[1] == '--medicalPersonel' || $argv[1] == '--mp')){
     echo "Enter the date you want to see the vaccination list: ";
@@ -54,7 +54,7 @@ if($argc > 1 && ($argv[1] == '--medicalPersonel' || $argv[1] == '--mp')){
     exit(0);
     
 }
-
+Echo " if you are medical personel start from beginning and use: php index.php --medicalPersonel. ", "\n";
 echo "If you want to register for vactination", "\n";
 echo "Enter national identification number: ";
 
