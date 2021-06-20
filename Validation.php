@@ -63,11 +63,6 @@ class Validation {
         }
     }
 
-
 }
-
-
-
-
 
 ?>

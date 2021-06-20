@@ -1,5 +1,74 @@
 <?php
 
+require __DIR__.'/bootstrap.php';
+
+Echo " if you are medical personel start from beginning and use: php index.php --medicalPersonel. ";
+
+if($argc > 1 && ($argv[1] == '--medicalPersonel' || $argv[1] == '--mp')){
+    echo "Enter the date you want to see the vaccination list: ";
+
+    $date = date("Y-m-d", strtotime(InputReader::readDateTime()));
+    $users = Json::getDB()->readData();
+    $foundUsers = [];
+    foreach($users as $user){
+        $userDate = date("Y-m-d", strtotime($user->dateTime));
+        if($userDate == $date){
+            $foundUsers[] = $user;
+        }
+    }
+
+    if(count($foundUsers) == 0){
+        echo "No patients registered on $date";
+    } else {
+        usort($foundUsers, function($a, $b){ 
+            if($a->dateTime == $b->dateTime)
+                return 0;
+
+            return ($a->dateTime < $b->dateTime) ? -1 : 1;
+         });
+    
+         $data = array();
+         foreach($foundUsers as $user){
+            $data[]= array($user->name, $user->dateTime ); 
+          
+             echo "{$user->dateTime} {$user->name}", "\n";
+         
+         }
+
+    
+        //  CSV Headers
+         $headers = array("name", "time");
+       
+
+        // Open/create csv file
+        $fh =fopen("file.csv","w");
+        // Create the heder
+        fputcsv($fh, $headers);
+        // Populate the data
+        foreach($data as $fields){
+            fputcsv($fh, $fields);
+        }
+        // Close the file
+        fclose($fh);
+    }
+    exit(0);
+    
+}
+
+echo "If you want to register for vactination", "\n";
+echo "Enter national identification number: ";
+
+// $nationalId = trim(fgets(STDIN, 1024));
+$nationalId =InputReader::readNationalId();
+
+
+echo "\n", "Your national identification number: ",  $nationalId, "\n";
+
+
+
+$foundUser = Json::getDB()->getUserByNationalId($nationalId);
+
+
 
 
 // ************************************** EXISTING  USER  ****************************************************************

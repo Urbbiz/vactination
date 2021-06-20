@@ -10,5 +10,5 @@ require DIR.'User.php';
 require DIR.'Validation.php';
 require DIR.'InputReader.php';
 
-_d($_SESSION, 'SESIJA--->');
+
 ?>
