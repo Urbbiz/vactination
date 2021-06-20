@@ -27,7 +27,7 @@ Application have the following functionality.
 ## Project features
 - VANILLA PHP
 - Validations (valid email, phone number, identification number)
-- Ability to import/export appointments in .csv format. Example of .csv file sadded to repository.
+- Ability to import/export appointments in .csv format. Example of .csv file added to repository.
 
 
 ## Authors
